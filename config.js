@@ -5,7 +5,7 @@ const BOT_SETTINGS = {
   VERSION: version,
   token:
     process.env.TOKEN ||
-    "OTU0NDY3OTc1NjUyNTkzNzM1.YjTjkg.RLPv1DmphmEs5J4sFRdN0mWjjVU",
+    "OTU0NDY3OTc1NjUyNTkzNzM1.YjTjkg.FFp9y_T4ZUjcKZOY1om-W5DiT4c",
   SERVER: {
     ID: "776996997621350411",
   },

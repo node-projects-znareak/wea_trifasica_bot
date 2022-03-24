@@ -1,4 +1,4 @@
-const { getAnimesTop } = require("../helpers/http");
+const { getAnimesTop } = require("../../helpers/http");
 const { MessageEmbed, Formatters } = require("discord.js");
 
 module.exports = {

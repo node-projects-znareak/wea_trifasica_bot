@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 const { prefix, client, SERVER, CHANNELS } = require("../config");
 const { warn, error } = require("./logger");
 
@@ -132,6 +135,32 @@ function toBs(number) {
   return number + " bs";
 }
 
+const requireCommands = (commands) => {
+  commands = commands ? `commands/${commands}` : "commands";
+
+  const commandFiles = fs
+    .readdirSync(path.join(__dirname, "..", `${commands}`))
+    .filter((file) => file.endsWith(".js"));
+
+  return commandFiles;
+};
+
+const setCommands = (...folderCommands) => {
+  for (const folderCommand of folderCommands) {
+    const commands = requireCommands(folderCommand);
+    for (const file of commands) {
+      const command = require(path.join(
+        __dirname,
+        "..",
+        "/commands",
+        folderCommand,
+        `${file}`
+      ));
+      client.commands.set(command.name, command);
+    }
+  }
+};
+
 function to$(number) {
   return "$" + number;
 }
@@ -154,4 +183,6 @@ module.exports = {
   existsChannel,
   sendDebugMessage,
   getMessageFromChannel,
+  requireCommands,
+  setCommands,
 };

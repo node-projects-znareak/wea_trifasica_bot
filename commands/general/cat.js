@@ -1,4 +1,4 @@
-const { getRandomCat } = require("../helpers/http");
+const { getRandomCat } = require("../../helpers/http");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {

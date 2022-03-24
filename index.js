@@ -1,14 +1,4 @@
 require("dotenv").config();
-
-const fs = require("fs");
-const commandFiles = fs
-  .readdirSync("./commands")
-  .filter((file) => file.endsWith(".js"));
-
-const commandAnimeFiles = fs
-  .readdirSync("./commands/anime")
-  .filter((file) => file.endsWith(".js"));
-
 const Discord = require("discord.js");
 const {
   client,
@@ -21,7 +11,11 @@ const {
   IS_NEW_BOT,
 } = require("./config");
 const { success, error, warn } = require("./helpers/logger");
-const { getMessageFromChannel } = require("./helpers/utils");
+const {
+  getMessageFromChannel,
+  requireCommands,
+  setCommands,
+} = require("./helpers/utils");
 
 const messageCreate = require("./handlers/messages");
 const messageReaction = require("./handlers/messageReaction");
@@ -56,19 +50,11 @@ client.on("ready", async (bot) => {
   }
 });
 
+setCommands("general", "waifu1");
+
 client.on("disconnect", () => {
   warn(`${client.user.username} se desconecto!`);
 });
-
-for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.name, command);
-}
-
-for (const file of commandAnimeFiles) {
-  const command = require(`./commands/anime/${file}`);
-  client.commands.set(command.name, command);
-}
 
 client.on("messageCreate", async (message) => {
   messageCreate(message);

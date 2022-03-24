@@ -1,6 +1,6 @@
-const { getAllMembers, getAllRoles } = require("../helpers/utils");
+const { getAllMembers, getAllRoles } = require("../../helpers/utils");
 const { MessageEmbed } = require("discord.js");
-const { SERVER, ROLES } = require("../config");
+const { SERVER, ROLES } = require("../../config");
 
 module.exports = {
   name: "info",

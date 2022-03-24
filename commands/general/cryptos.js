@@ -1,4 +1,4 @@
-const { allPrices } = require("../helpers/http");
+const { allPrices } = require("../../helpers/http");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
