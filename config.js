@@ -4,7 +4,7 @@ const BOT_SETTINGS = {
   prefix: "!",
   VERSION: version,
   token:
-    process.env.TOKEN 
+    process.env.TOKEN ,
   SERVER: {
     ID: "776996997621350411",
   },
