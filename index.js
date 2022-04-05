@@ -62,7 +62,7 @@ client.on("messageCreate", async (message) => {
 
 client.on("guildMemberAdd", async (member) => {
   warn(`El usuario ${member.user.username} entro al servidor`);
-});
+}); 
 
 client.on("guildMemberRemove", async (member) => {
   warn(`El usuario ${member.user.username} abandono el servidor`);

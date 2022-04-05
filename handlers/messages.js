@@ -12,9 +12,6 @@ async function messageCreate(message) {
     });
 
     if (!command) {
-      await message.reply({
-        content: `⚠️ The command "${obj.command}" dont exists!`,
-      });
       return warn(`The command "${obj.command}" dont exists!`);
     }
 
