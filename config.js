@@ -1,7 +1,7 @@
 const { Client, Intents, version } = require("discord.js");
 
 const BOT_SETTINGS = {
-  prefix: "!",
+  prefix: "!", 
   VERSION: version,
   token:
     process.env.TOKEN ,
