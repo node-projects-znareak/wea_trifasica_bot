@@ -36,6 +36,9 @@ client.on("ready", async (bot) => {
   success(`${client.user.username} esta preparado!`);
   success(`Estado: ${bot.user.presence.status}`);
   success(`Actualmente serviendo ${client.guilds.cache.size} severs!`);
+  client.guilds.cache.forEach((guild) => {
+    success(` - ${guild.name} | ${guild.id}`);
+  });
   client.user.setActivity("ser esclava de zNareak 😘");
 
   if (IS_NEW_BOT) {
